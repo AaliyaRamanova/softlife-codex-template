@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codex Vault</title>
+</head>
+<body>
+  <h1>Codex Vault 🔐</h1>
+  <input id="githubToken" placeholder="GitHub Token">
+  <input id="openaiKey" placeholder="OpenAI API Key">
+  <script>
+    function saveVault() {
+      const vault = {
+        githubToken: document.getElementById('githubToken').value,
+        openaiKey: document.getElementById('openaiKey').value
+      };
+      localStorage.setItem('codexVault', JSON.stringify(vault));
+    }
+  </script>
+</body>
+</html>
