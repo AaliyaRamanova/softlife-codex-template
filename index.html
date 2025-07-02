@@ -1,1 +1,64 @@
-<!DOCTYPE html><html><head><title>Soft Life Aaliya</title></head><body><h1>Welcome to Soft Life Codex 🌙</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Soft Life Aaliya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom right, #fce4ec, #f3e5f5);
+      color: #4a0072;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #ba68c8; }
+      50% { text-shadow: 0 0 20px #d4af37, 0 0 30px #fce4ec; }
+      100% { text-shadow: 0 0 5px #ba68c8; }
+    }
+
+    .vault-button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 12px;
+      background-color: #d4af37;
+      color: white;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .vault-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Soft Life Codex 🌙</h1>
+
+  <button class="vault-button" onclick="checkVault()">
+    🔐 Test Vault Sync
+  </button>
+
+  <script>
+    async function checkVault() {
+      try {
+        const res = await fetch('/check-vault');
+        const data = await res.json();
+        alert(data.status + (data.email ? '\nSynced Email: ' + data.email : ''));
+      } catch (e) {
+        alert('🚨 Error checking Vault connection');
+      }
+    }
+  </script>
+</body>
+</html>
